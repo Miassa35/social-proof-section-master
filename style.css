@@ -1,0 +1,170 @@
+:root{
+    --Very-Dark-Magenta:  hsl(300, 43%, 22%);
+    --Soft-Pink: hsl(333, 80%, 67%);
+    --Dark-Grayish-Magenta:  hsl(303, 10%, 53%);
+    --Light-Grayish-Magenta: hsl(300, 24%, 96%);
+    --White: hsl(0, 0%, 100%);
+    --fw-regular: 400;
+    --fw--medium: 500;
+    --fw-bold: 700;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'League Spartan', sans-serif;
+    list-style-type: none;
+}
+body{
+    font-size: 15px;
+    min-height: 100vh;
+}
+@media screen and (min-width: 900px){
+    body{
+        display: grid;
+        place-content: center;
+    }
+}
+img{
+    max-width: 100%;
+    display: block;
+}
+.grid-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3em;
+    max-width: 31.25rem;
+    margin: 0 auto;
+    padding: 5em 3.5em;
+}
+@media screen and (min-width: 900px){
+    .grid-container{
+        max-width: 75rem; /*70rem= 1110px*/
+        grid-template-columns: 1fr 1fr;
+    }
+}
+.article{
+    text-align: center;
+}
+.article__title{
+    color: var(--Very-Dark-Magenta);
+    font-size: 3rem;
+    font-weight: var(--fw-bold);
+    line-height: .8;
+    max-width: 15ch;
+}
+.article__description{
+    color: var(--Dark-Grayish-Magenta);
+    font-size: 1.2rem;
+    font-weight: var(--fw-medium);
+    line-height: 1.2;
+    padding: 1.5em 0;
+}
+@media screen and (min-width: 900px){
+    .article{
+        grid-column: 1/2;
+        text-align: left;
+    }
+    .article__title{
+        font-size: 3.5rem;
+    }
+    .ratings{
+        grid-column: 2/3;
+        align-self: center;
+    }
+    .reviews{
+        grid-column: 1/-1;
+        display: flex;
+        gap: 1.5em;
+    }
+    .review{
+        flex-basis: 100%;
+    }
+}
+.rating{
+    background-color: var(--Light-Grayish-Magenta);
+    border-radius: .5em;
+    text-align: center;
+    font-size: .8rem;
+    padding: 1em 0;
+}
+@media screen and (min-width: 900px){
+    .ratings{
+        padding: 0 2em;
+    }
+    .rating{
+        display: flex;
+        align-items: center;
+        padding: 1.5em 0;
+    }
+    .rating:first-of-type{
+        transform: translateX(-1.7rem);
+    }
+    .rating:last-of-type{
+        transform: translateX(1.7rem);
+    }
+}
+.ratings > * + *, .reviews >* + *{
+    margin-top: 1rem;
+}
+@media screen and (min-width: 900px){
+    .reviews >* + *{
+        margin-top: 0;
+    }
+}
+/*using the pseudo element before, I created a duplicate of the star image*/
+.rating::before{
+    content: '';
+    display: block;
+    width: 100px;
+    height: 1rem;
+    margin: 0 auto .5rem;
+    background-image: url(images/icon-star.svg);
+    background-repeat: space;
+}
+@media screen and (min-width: 900px){
+    .rating::before{
+        margin: 0 2rem;
+    }
+}
+.ratings__title{
+    color: var(--Very-Dark-Magenta);
+}
+.review{
+    background-color: var(--Very-Dark-Magenta);
+    color: var(--White);
+    padding: 2em;
+    border-radius: .5em;
+    font-size: 1rem;
+}
+@media screen and (min-width: 900px){
+    .review:nth-child(2){
+        transform: translateY(1rem);
+    }
+    .review:last-of-type{
+        transform: translateY(2.5rem);
+    }
+}
+.dflex{
+    display: flex;
+    align-items: center;
+    gap: 1.5em;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+.customer-pic{
+    border-radius: 50%;
+    width: 3rem;
+}
+.review__title{
+    font-weight: var(--fw--medium);
+    font-size: 1rem;
+}
+span{
+    font-weight: var(--fw-regular);
+    color: var(--Soft-Pink);
+}
+.review__text{
+    color: var(--White);
+    line-height: 1.5;
+}
